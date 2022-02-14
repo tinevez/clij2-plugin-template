@@ -38,16 +38,16 @@ public class PluginTemplate extends AbstractCLIJ2Plugin implements CLIJMacroPlug
         //      entered in ImageJ macro or in the dialog. Images have type ClearCLBuffer, numbers come as Double.
         //      Use the methods asFloat(args[n]), asInteger(args[n]), asBoolean(args[n]) to convert them properly.
 
-        boolean result = addScalar(getCLIJ2(), (ClearCLBuffer)( args[0]), (ClearCLBuffer)(args[1]), asFloat(args[2]));
+        boolean result = PluginTemplate.addScalar(getCLIJ2(), (ClearCLBuffer)( args[0]), (ClearCLBuffer)(args[1]), asFloat(args[2]));
 
         // -------------------------------------------------------------------------------------------------------------
         return result;
     }
 
     // -----------------------------------------------------------------------------------------------------------------
-    // todo: enter your corde here. The argument order may be changed. However, it is recommended to use the same order
+    // todo: enter your code here. The argument order may be changed. However, it is recommended to use the same order
     //       as defined in the getParameterHelpText() method to prevent confusion.
-    private boolean addScalar(CLIJ2 clij2, ClearCLBuffer src, ClearCLBuffer dst, Float scalar) {
+    private static boolean addScalar(CLIJ2 clij2, ClearCLBuffer src, ClearCLBuffer dst, Float scalar) {
         HashMap<String, Object> parameters = new HashMap<>();
         parameters.put("src", src);
         parameters.put("scalar", scalar);
